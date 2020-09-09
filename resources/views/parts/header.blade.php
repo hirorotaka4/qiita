@@ -7,6 +7,7 @@
 
   <div class="collapse navbar-collapse" id="Navber">
     <ul class="navbar-nav">
+      @if (Auth::check())
       <li class="nav-item ml-2">
         <a href="#" class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">ホーム</a>
@@ -56,12 +57,14 @@
           </form>
         </div>
       </li>
+      @else
       <li class="nav-item ml-2">
         <a class="nav-link text-white" id="register" href="/register">ユーザ登録</a>
       </li>
       <li class="nav-item ml-2">
         <a class="nav-link text-white" href="#">ログイン</a>
       </li>
+      @endif
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

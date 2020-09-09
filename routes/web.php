@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('top');
-});
+Route::get('/', 'Auth\PostController@showTopPage')->name('top'); // 修正
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/drafts/new', 'Auth\PostController@index')->name('drafts.new'); // 追記
+Route::post('/drafts/new', 'Auth\PostController@postArticle')->name('drafts.new.posts'); // 追記
+
+Route::get('/drafts/{id}', 'Auth\PostController@showArticle')->name('item'); // 追記
